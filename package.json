@@ -1,0 +1,23 @@
+{
+  "name": "fs.copy",
+  "version": "0.0.1",
+  "description": "Copy some files easily",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "NODE_ENV=test DEBUG=fs.copy:* nyc --reporter=lcov ava test/ --verbose"
+  },
+  "keywords": [
+    "copy",
+    "files",
+    "copy-files",
+    "fs",
+    "file",
+    "file system"
+  ],
+  "author": "Xeitodevs <webmaster@xeitodevs.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "ava": "^0.25.0",
+    "nyc": "^11.4.1"
+  }
+}
