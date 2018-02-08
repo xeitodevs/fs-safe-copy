@@ -5,7 +5,7 @@ const os = require('os')
 const path = require('path')
 const { copy } = require('../')
 
-const { createDirectory, emptyDirectory, removeDirectory } = require('./helpers/utils')
+const { createDirectory, removeDirectory } = require('./helpers/utils')
 
 const TEST_DIRECTORY = path.join(os.tmpdir(), 'fs.copy')
 
@@ -21,9 +21,7 @@ test.after(async () => {
 test('fs.copy', async t => {
   const fileSrc = path.join(TEST_DIRECTORY, 'TEST_fs.copy')
   const fileDest = path.join(TEST_DIRECTORY, 'TEST_fs.copy')
-  try {
-    await copy(fileSrc, fileDest)
-  } catch (err) {
-    t.truthy(err, 'should return an error if src and dest are the same')
-  }
+  const promise = copy(fileSrc, fileDest)
+  const err = await t.throws(promise, Error, 'should return an error if src and dest are the same')
+  t.is(err.message, 'source and destination must not be the same')
 })
