@@ -5,6 +5,7 @@ const path = require('path')
 const fs = require('fs')
 const { promisify } = require('util')
 const mkdir = promisify(fs.mkdir)
+
 function remove (directoryPath) {
   return new Promise((resolve, reject) => {
     rimraf(directoryPath, (err) => {
@@ -37,8 +38,15 @@ function createDirectory (directoryPath) {
   return mkdir(path.join(directoryPath))
 }
 
+function createTestFile (path, data) {
+  const stream = fs.createWriteStream(path)
+  stream.write(data)
+  stream.end()
+}
+
 module.exports = {
   removeDirectory,
   emptyDirectory,
-  createDirectory
+  createDirectory,
+  createTestFile
 }
