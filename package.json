@@ -4,7 +4,9 @@
   "description": "Copy some files easily",
   "main": "lib/index.js",
   "scripts": {
-    "test": "NODE_ENV=test DEBUG=fs.copy:* nyc --reporter=lcov ava test/ --verbose"
+    "prepush": "npm t && npm run lint",
+    "test": "NODE_ENV=test DEBUG=fs.copy:* nyc --reporter=lcov ava test/ --verbose",
+    "lint": "standard"
   },
   "keywords": [
     "copy",
@@ -18,8 +20,10 @@
   "license": "MIT",
   "devDependencies": {
     "ava": "0.25.0",
+    "husky": "^0.14.3",
     "nyc": "11.4.1",
-    "rimraf": "2.6.2"
+    "rimraf": "2.6.2",
+    "standard": "^11.0.0"
   },
   "dependencies": {
     "mkdirp": "0.5.1"
