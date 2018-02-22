@@ -9,7 +9,7 @@ const { copy, pathExists } = require('../lib/copy')
 
 const { createDirectory, removeDirectory, createTestFile } = require('./helpers/utils')
 
-const TEST_DIRECTORY = path.join(os.tmpdir(), 'fs.copy')
+const TEST_DIRECTORY = path.join(os.tmpdir(), `fs.copy-${Date.now()}`)
 
 test.before(async () => {
   await removeDirectory(TEST_DIRECTORY)
