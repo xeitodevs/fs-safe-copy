@@ -14,7 +14,9 @@
     "copy-files",
     "fs",
     "file",
-    "file system"
+    "file system",
+    "safe",
+    "hash"
   ],
   "author": "Xeitodevs <webmaster@xeitodevs.com>",
   "license": "MIT",
@@ -22,6 +24,7 @@
     "ava": "0.25.0",
     "husky": "^0.14.3",
     "nyc": "11.4.1",
+    "proxyquire": "^1.8.0",
     "rimraf": "2.6.2",
     "standard": "^11.0.0"
   },
