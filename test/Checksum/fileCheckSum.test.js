@@ -19,8 +19,8 @@ test('Checksum success on same file content', async t => {
   const fileSrc = path.join(TEST_DIRECTORY, 'TEST_fs.checksumSameFileA')
   const fileDest = path.join(TEST_DIRECTORY, 'TEST_fs.checksumSameFileB')
   const fileData = 'hello-world'
-  createTestFile(fileSrc, fileData)
-  createTestFile(fileDest, fileData)
+  await createTestFile(fileSrc, fileData)
+  await createTestFile(fileDest, fileData)
   t.is(await fileEqual(fileSrc, fileDest), true)
 })
 
@@ -29,7 +29,7 @@ test('Checksum must fail on different file content', async t => {
   const fileDest = path.join(TEST_DIRECTORY, 'TEST_fs.checksumDifferentFileB')
   const fileDataSrc = 'hello-world'
   const fileDataDst = 'bye-world'
-  createTestFile(fileSrc, fileDataSrc)
-  createTestFile(fileDest, fileDataDst)
+  await createTestFile(fileSrc, fileDataSrc)
+  await createTestFile(fileDest, fileDataDst)
   t.is(await fileEqual(fileSrc, fileDest), false)
 })

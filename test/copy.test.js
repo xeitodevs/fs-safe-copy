@@ -32,7 +32,7 @@ test('fs.copy correctly', async t => {
   const fileSrc = path.join(TEST_DIRECTORY, 'TEST_fs.copySrc')
   const fileDest = path.join(TEST_DIRECTORY, 'TEST_fs.copyDest')
   const fileData = 'hello-world'
-  createTestFile(fileSrc, fileData)
+  await createTestFile(fileSrc, fileData)
   const promise = copy(fileSrc, fileDest)
   await t.notThrows(promise)
   const exist = await pathExists(fileDest)
