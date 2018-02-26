@@ -17,21 +17,23 @@ test('TaskQueue', async t => {
 
 test('TaskQueue check result', async t => {
   const taskQueue = new TaskQueue({ parallelTasks: 2 })
-  let taskOneResult = ''
-  const asyncTaskOne = async () => {
-    taskOneResult = await new Promise(resolve => {
-      setTimeout(() => resolve('taskOneResult'), 1000)
-    })
-  }
-
-  taskQueue.pushTasks([asyncTaskOne])
+  const taskResult = {}
+  taskQueue.pushTasks([getAsyncTaskWithCachedValues(taskResult)])
   t.is(taskQueue.runningTask, 1, 'should exist only two running task')
   await getPromise(2000)
-  t.is(taskOneResult, 'taskOneResult', 'should to have the correct value')
+  t.is(taskResult.value, 'cached value', 'should to have the correct value')
 })
 
 function getPromise (delay = 2000) {
   return new Promise(resolve => {
     setTimeout(() => resolve(), delay)
   })
+}
+
+function getAsyncTaskWithCachedValues (cachedValue) {
+  return () => {
+    return new Promise(resolve => {
+      setTimeout(() => resolve(), 500)
+    }).then(() => (cachedValue.value = 'cached value'))
+  }
 }
