@@ -42,17 +42,13 @@ test('fs.safeCopy throws exception on data corruption.', async t => {
   const fileDest = path.join(TEST_DIRECTORY, 'TEST_fs.safeCopyDest')
   const fileData = 'hello-world'
   await createTestFile(fileSrc, fileData)
-  await t.throws(proxiedSafeCopy(fileSrc, fileDest), CorruptOperationException,
-    'Something changed the files just after operation'
-  )
+  const exception = await t.throws(proxiedSafeCopy(fileSrc, fileDest))
+  t.deepEqual(exception, new CorruptOperationException('Something changed the files just after operation'))
 })
-
 test('fs.safeCopy throws exception trying to copy dir.', async t => {
   const dirSrc = path.join(TEST_DIRECTORY, 'TEST_fs_dir.safeCopySrc')
   const dirDest = path.join(TEST_DIRECTORY, 'TEST_fs_dir.safeCopyDest')
   await createDirectory(dirSrc)
-  await t.throws(
-    proxiedSafeCopy(dirSrc, dirDest),
-    FileCopyException, 'Cannot safe copy directories'
-  )
+  const exception = await t.throws(proxiedSafeCopy(dirSrc, dirDest))
+  t.deepEqual(exception, new FileCopyException('Cannot safe copy directories'))
 })
