@@ -45,6 +45,7 @@ test('fs.safeCopy throws exception on data corruption.', async t => {
   const exception = await t.throws(proxiedSafeCopy(fileSrc, fileDest))
   t.deepEqual(exception, new CorruptOperationException('Something changed the files just after operation'))
 })
+
 test('fs.safeCopy throws exception trying to copy dir.', async t => {
   const dirSrc = path.join(TEST_DIRECTORY, 'TEST_fs_dir.safeCopySrc')
   const dirDest = path.join(TEST_DIRECTORY, 'TEST_fs_dir.safeCopyDest')
