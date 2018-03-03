@@ -23,16 +23,15 @@ test.after(async () => {
 test('fs.copy with the same source and destination', async t => {
   const fileSrc = path.join(TEST_DIRECTORY, 'TEST_fs.copy')
   const fileDest = path.join(TEST_DIRECTORY, 'TEST_fs.copy')
-  const promise = copy(fileSrc, fileDest)
-  const err = await t.throws(promise, IsTheSameFileException, 'should return an error if src and dest are the same')
-  t.is(err.message, 'source and destination must not be the same')
+  const exception = await t.throws(copy(fileSrc, fileDest))
+  t.deepEqual(exception, new IsTheSameFileException('source and destination must not be the same'))
 })
 
 test('fs.copy correctly', async t => {
   const fileSrc = path.join(TEST_DIRECTORY, 'TEST_fs.copySrc')
   const fileDest = path.join(TEST_DIRECTORY, 'TEST_fs.copyDest')
   const fileData = 'hello-world'
-  createTestFile(fileSrc, fileData)
+  await createTestFile(fileSrc, fileData)
   const promise = copy(fileSrc, fileDest)
   await t.notThrows(promise)
   const exist = await pathExists(fileDest)
