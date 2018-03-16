@@ -1,7 +1,6 @@
 'use strict'
 
 const test = require('ava')
-const os = require('os')
 const path = require('path')
 const fs = require('fs')
 const { IsTheSameFileException } = require('../lib/errors/IsTheSameFileException')

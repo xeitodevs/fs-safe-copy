@@ -2,7 +2,6 @@
 
 const test = require('ava')
 const proxyquire = require('proxyquire')
-const os = require('os')
 const path = require('path')
 const { safeCopy } = require('../lib/copy')
 const { createDirectory, removeDirectory, createTestFile, getTestDirectory } = require('./helpers/utils')
