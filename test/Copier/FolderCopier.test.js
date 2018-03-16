@@ -48,3 +48,31 @@ test('copy directory', async t => {
     t.is(fs.readFileSync(getPath(fileName)).toString(), `${dataInFile} ${fileName}`, `should exist the file ${fileName} with correct content`)
   }
 })
+
+test('copy directory: check that only the files are copied', async t => {
+  const folder = 'directorySrcOnlyFiles'
+  const directorySrc = getPath(folder)
+  await createDirectory(directorySrc)
+  const dataInFile = 'data in file'
+  const numbers = Array.from({ length: 5 }, (val, index) => index)
+  for (const number of numbers) {
+    const fileName = `TEST_FILE_${number}.txt`
+    await createTestFile(path.join(directorySrc, fileName), `${dataInFile} ${fileName}`)
+  }
+  await createDirectory(getPath(`${folder}/not-copy`))
+  const copier = new FolderCopier(directorySrc, TEST_DIRECTORY)
+  await copier.copy()
+
+  for (const number of numbers) {
+    const fileName = `TEST_FILE_${number}.txt`
+    t.is(fs.readFileSync(getPath(fileName)).toString(), `${dataInFile} ${fileName}`, `should exist the file ${fileName} with correct content`)
+  }
+
+  try {
+    fs.readdirSync(getPath('not-copy'))
+  } catch (err) {
+    t.truthy(err, 'should exist an error because the folder does not exits')
+    t.is(err.code, 'ENOENT')
+    t.true(typeof files === 'undefined')
+  }
+})
