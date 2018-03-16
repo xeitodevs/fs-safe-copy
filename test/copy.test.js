@@ -7,9 +7,9 @@ const fs = require('fs')
 const { IsTheSameFileException } = require('../lib/errors/IsTheSameFileException')
 const { copy, pathExists } = require('../lib/copy')
 
-const { createDirectory, removeDirectory, createTestFile } = require('./helpers/utils')
+const { createDirectory, removeDirectory, createTestFile, getTestDirectory } = require('./helpers/utils')
 
-const TEST_DIRECTORY = path.join(os.tmpdir(), `fs.copy-${Date.now()}`)
+const TEST_DIRECTORY = getTestDirectory()
 
 test.before(async () => {
   await removeDirectory(TEST_DIRECTORY)

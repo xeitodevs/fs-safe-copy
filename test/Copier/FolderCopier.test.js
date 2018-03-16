@@ -1,12 +1,12 @@
 const test = require('ava')
-const os = require('os')
 const path = require('path')
+const { getTestDirectory } = require('../helpers/utils')
 const { RecursiveCopyException } = require('../../lib/errors/RecursiveCopyException')
 const { FolderCopier } = require('../../lib/Copier/FolderCopier')
 
 const { createDirectory, removeDirectory } = require('../helpers/utils')
 
-const TEST_DIRECTORY = path.join(os.tmpdir(), `fs.copy-${Date.now()}`)
+const TEST_DIRECTORY = getTestDirectory()
 
 function getPath (file) {
   return path.join(TEST_DIRECTORY, file)

@@ -1,10 +1,9 @@
 const test = require('ava')
-const os = require('os')
 const path = require('path')
 
-const { createDirectory, removeDirectory, createTestFile } = require('../helpers/utils')
+const { createDirectory, removeDirectory, createTestFile, getTestDirectory } = require('../helpers/utils')
 const { fileEqual } = require('../../lib/Checksum/fileCheckSum')
-const TEST_DIRECTORY = path.join(os.tmpdir(), `fs.copy-${Date.now()}`)
+const TEST_DIRECTORY = getTestDirectory()
 
 test.before(async () => {
   await removeDirectory(TEST_DIRECTORY)

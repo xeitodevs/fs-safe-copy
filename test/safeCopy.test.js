@@ -1,24 +1,25 @@
 'use strict'
 
 const test = require('ava')
+const proxyquire = require('proxyquire')
 const os = require('os')
 const path = require('path')
 const { safeCopy } = require('../lib/copy')
+const { createDirectory, removeDirectory, createTestFile, getTestDirectory } = require('./helpers/utils')
+const { FileCopyException } = require('../lib/errors/FileCopyException')
+const { CorruptOperationException } = require('../lib/errors/CorruptOperationException')
 
 const fileEqualStub = {
   fileEqual: async function (src, dest) {
     return false
   }
 }
-const proxyquire = require('proxyquire')
-const FileCopyException = require('../lib/errors/FileCopyException').FileCopyException
-const { CorruptOperationException } = require('../lib/errors/CorruptOperationException')
+
 const { safeCopy: proxiedSafeCopy } = proxyquire('../lib/copy', {
   './Checksum/fileCheckSum': fileEqualStub
 })
 
-const { createDirectory, removeDirectory, createTestFile } = require('./helpers/utils')
-const TEST_DIRECTORY = path.join(os.tmpdir(), `fs.copy-${Date.now()}`)
+const TEST_DIRECTORY = getTestDirectory()
 
 test.before(async () => {
   await removeDirectory(TEST_DIRECTORY)

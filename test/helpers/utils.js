@@ -1,6 +1,7 @@
 'use strict'
 
 const rimraf = require('rimraf')
+const os = require('os')
 const path = require('path')
 const fs = require('fs')
 const { promisify } = require('util')
@@ -44,9 +45,14 @@ function createTestFile (path, data) {
   stream.end()
 }
 
+function getTestDirectory () {
+  return path.join(os.tmpdir(), `fs.copy-${Date.now()}`)
+}
+
 module.exports = {
   removeDirectory,
   emptyDirectory,
   createDirectory,
-  createTestFile
+  createTestFile,
+  getTestDirectory
 }
