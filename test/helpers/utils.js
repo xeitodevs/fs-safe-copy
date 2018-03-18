@@ -25,11 +25,6 @@ function checkDirectoryPath (directoryPath) {
   }
 }
 
-function emptyDirectory (directoryPath) {
-  checkDirectoryPath(directoryPath)
-  return remove(path.join(directoryPath, '*'))
-}
-
 function removeDirectory (directoryPath) {
   checkDirectoryPath(directoryPath)
   return remove(path.join(directoryPath))
@@ -84,7 +79,6 @@ class Temporizer {
 
 module.exports = {
   removeDirectory,
-  emptyDirectory,
   exists,
   createDirectory,
   createTestFile,
