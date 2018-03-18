@@ -7,8 +7,6 @@ notifications:
 cache:
   directories:
   - "node_modules"
-install:
-- node . install
 script:
 - "standard"
 - "node . run test"
