@@ -37,5 +37,3 @@ test('fs.copy correctly', async t => {
   t.true(exist, 'should exist the destination file')
   t.is(fs.readFileSync(fileDest).toString(), fileData, 'should exist the destination file with correct content')
 })
-
-test('fs.copy pass', t => t.pass())
