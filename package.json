@@ -4,9 +4,9 @@
   "description": "Copy some files easily",
   "main": "lib/index.js",
   "scripts": {
-    "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
+    "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov",
     "prepush": "npm t && npm run lint",
-    "test": "NODE_ENV=test DEBUG=fs.copy:* nyc --reporter=lcov ava test/ --verbose",
+    "test": "NODE_ENV=test DEBUG=fs.copy:* nyc --reporter=lcov ava test/ --verbose && npm run report-coverage",
     "lint": "standard"
   },
   "keywords": [
@@ -23,7 +23,6 @@
   "license": "MIT",
   "devDependencies": {
     "ava": "0.25.0",
-    "codecov": "^3.0.0",
     "husky": "^0.14.3",
     "nyc": "11.4.1",
     "proxyquire": "^1.8.0",
