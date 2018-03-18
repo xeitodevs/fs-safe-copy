@@ -5,14 +5,6 @@ language: node_js
 notifications:
   slack:
     secure: d6nXB3zACmeVzSq3ZuAnLI9fh1iUX3u0Lj8pxJk6F/rR3iLckv3bP4x7crFRs2hY1BfCAWoKmnlcd1GBbAPJJncHJYRRxydNWsm0apaWcyadbXBWQpfJJy5KQmRq/zDamjpjfVXJYIwhKlIU+7B0nP/RZPVagg7lMit1StGeNqLNX42fGRDrdf8jg0tOtZLQVgt+Z+KtJEolVKNiGbuF9AkeDy6ZaftQEjF22DV43c6ye3Q4/eTc4JZ1ExmLkU8cx5FpYfBWw81ILgdNgk3zG8auu67A0+gO1eu/EwB29pP/1MEi3lsPzJ6mbS7djPk1IMdCDOPjxSTQkE1cEB+OuZKk9aBAYmbVdsMvMr7VY0bIE50ZoyHpvaJms6XJPzXEZmW1rFSBSwNlPjEyUgDkK4HqIbmonTRiIkRZVtUcNl8fdjYDZb71x6eVClWN8dpghCRv3/l4IIzmqXFFokKzhqcoPFqIsmeovPjJ7jgDz1ctlgv5kZy7K4lptaMzmXl2x3WxO6WBEQOIWXG1YZse9hv0bBG2R2E36/Jo53oYyoVJQxMW9c2DRzO20WOwxPZ1JNQ3kU/aTwswNfhW13jYV6v5N0byCks8GbSH4BShIuuSP6VhbGNWrnG+gzotiP9rHIlw/exVwHp6QB8NsCdWaY2hlLAytoxHinGdZ7KLVGs=
-cache:
-  directories:
-  - "node_modules"
-install:
-- node . install
 script:
-- "standard"
-- "node . run test"
-branches:
-  only:
-  - master
+- standard
+- node . run test
