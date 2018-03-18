@@ -16,7 +16,7 @@ test.after(async () => {
 })
 
 test.serial('Test lib, massive copy of a directory taking care about timings', async (t) => {
-  const maxTime = 4800
+  const maxTime = 5000
   const temporizer = new Temporizer(maxTime)
 
   const originCopyDirectory = `${TEST_DIRECTORY}/origin`
