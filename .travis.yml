@@ -10,6 +10,7 @@ cache:
 script:
 - "standard"
 - "node . run test"
+- codecov
 branches:
   only:
   - master
