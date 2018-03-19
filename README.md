@@ -23,7 +23,7 @@ npm i fs-safe-copy
 ```
 
 ### Usage
-```bash
+```javascript
 const { copy, safeCopy } = require('fs-safe-copy')
 
 // Only copy one file
