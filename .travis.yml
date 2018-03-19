@@ -12,7 +12,7 @@ script:
 - "node . run test"
 - "node . run report-coverage"
 after_success:
-  - codecov
+  - bash <(curl -s https://codecov.io/bash) -f coverage/coverage.lcov
 branches:
   only:
   - master
