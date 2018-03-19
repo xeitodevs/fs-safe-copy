@@ -11,7 +11,7 @@ script:
 - "standard"
 - "npm t"
 after_success:
-  - bash <(curl -s https://codecov.io/bash) -f coverage.lcov
+  - bash <(curl -s https://codecov.io/bash) -f coverage/coverage.lcov
 branches:
   only:
   - master
