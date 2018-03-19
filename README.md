@@ -1,4 +1,4 @@
-# fs-copy
+# fs-safe-copy
 
 [![Build Status](https://travis-ci.org/xeitodevs/fs.copy.svg?branch=master)](https://travis-ci.org/xeitodevs/fs.copy)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
@@ -19,21 +19,30 @@ A library for copy files with a promise based interface.
 
 You can download this package with the blazing fast NPM
 ```bash
-npm i fs-copy
+npm i fs-safe-copy
 ```
 
 ### Usage
 ```bash
-const { copy, safeCopy } = require('xeitodevs-fs-copy')
+const { copy, safeCopy } = require('fs-safe-copy')
 
 // Only copy one file
-await copy('/origin/file.txt', '/destination/file.txt')
+
+try {
+    await copy('/origin/file.txt', '/destination/file.txt')
+}cath (e){
+    // do something. see lib/errors.
+}
 
 // Copy entire dir, with depth level 1. (subdirs will be ignored)
 await copy('/origin', '/destination')
 
 // Copy one unique file and do the checksum after operation.
-await safeCopy('/origin/file.txt', '/destination/file.txt', 'sha1')
+try {
+    await safeCopy('/origin/file.txt', '/destination/file.txt', 'sha1')
+} catch (e) {
+     // do something. see lib/errors
+}
 // Note the third argument above example, you can set the hash algorithm
 // to do the checksum of the file after is copied. Defaults to md5.
 ```
