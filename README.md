@@ -5,7 +5,8 @@
 [![codecov](https://codecov.io/gh/xeitodevs/fs.copy/branch/master/graph/badge.svg)](https://codecov.io/gh/xeitodevs/fs.copy)
 
 
-A library for copy files with a promise based interface.
+A library for copy files with a promise based interface and operation
+checks utilities.
 
 ### Features
 
@@ -30,7 +31,7 @@ const { copy, safeCopy } = require('fs-safe-copy')
 
 try {
     await copy('/origin/file.txt', '/destination/file.txt')
-}cath (e){
+} catch (e){
     // do something. see lib/errors.
 }
 
