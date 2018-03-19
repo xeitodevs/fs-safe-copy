@@ -4,7 +4,7 @@
   "description": "Copy some files easily",
   "main": "lib/index.js",
   "scripts": {
-    "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov",
+    "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
     "prepush": "npm t && npm run lint",
     "test": "NODE_ENV=test DEBUG=fs.copy:* nyc --reporter=lcov ava test/ --verbose",
     "lint": "standard"
