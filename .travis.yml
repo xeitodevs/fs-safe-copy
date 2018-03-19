@@ -10,9 +10,8 @@ cache:
 script:
 - "standard"
 - "node . run test"
-- "node . run report-coverage"
 after_success:
-  - bash <(curl -s https://codecov.io/bash) -f coverage/coverage.lcov
+  - bash <(curl -s https://codecov.io/bash) -f coverage.lcov
 branches:
   only:
   - master
