@@ -11,6 +11,7 @@ script:
 - "standard"
 - "node . run test"
 - "node . run report-coverage"
+- codecov
 branches:
   only:
   - master
