@@ -1,12 +1,12 @@
 {
-  "name": "fs.copy",
+  "name": "fs-safe-copy",
   "version": "0.0.1",
   "description": "Copy some files easily",
   "main": "lib/index.js",
   "scripts": {
     "report-coverage": "nyc report --reporter=text-lcov > coverage/coverage.lcov",
     "prepush": "npm t && npm run lint",
-    "test": "NODE_ENV=test DEBUG=fs.copy:* nyc --reporter=lcov ava test/ --verbose && npm run report-coverage",
+    "test": "NODE_ENV=test DEBUG=fs-safe-copy:* nyc --reporter=lcov ava test/ --verbose && npm run report-coverage",
     "lint": "standard"
   },
   "keywords": [

@@ -1,8 +1,8 @@
 # fs-safe-copy
 
-[![Build Status](https://travis-ci.org/xeitodevs/fs.copy.svg?branch=master)](https://travis-ci.org/xeitodevs/fs.copy)
+[![Build Status](https://travis-ci.org/xeitodevs/fs-safe-copy.svg?branch=master)](https://travis-ci.org/xeitodevs/fs-safe-copy)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
-[![codecov](https://codecov.io/gh/xeitodevs/fs.copy/branch/master/graph/badge.svg)](https://codecov.io/gh/xeitodevs/fs.copy)
+[![codecov](https://codecov.io/gh/xeitodevs/fs-safe-copy/branch/master/graph/badge.svg)](https://codecov.io/gh/xeitodevs/fs-safe-copy)
 
 
 A library for copy files with a promise based interface and operation

@@ -19,16 +19,16 @@ test.after(async () => {
   await removeDirectory(TEST_DIRECTORY)
 })
 
-test('fs.copy with the same source and destination', async t => {
-  const fileSrc = path.join(TEST_DIRECTORY, 'TEST_fs.copy')
-  const fileDest = path.join(TEST_DIRECTORY, 'TEST_fs.copy')
+test('fs-safe-copy with the same source and destination', async t => {
+  const fileSrc = path.join(TEST_DIRECTORY, 'TEST_fs-safe-copy')
+  const fileDest = path.join(TEST_DIRECTORY, 'TEST_fs-safe-copy')
   const exception = await t.throws(copy(fileSrc, fileDest))
   t.deepEqual(exception, new IsTheSameFileException('source and destination must not be the same'))
 })
 
-test('fs.copy correctly', async t => {
-  const fileSrc = path.join(TEST_DIRECTORY, 'TEST_fs.copySrc')
-  const fileDest = path.join(TEST_DIRECTORY, 'TEST_fs.copyDest')
+test('fs-safe-copy correctly', async t => {
+  const fileSrc = path.join(TEST_DIRECTORY, 'TEST_fs-safe-copySrc')
+  const fileDest = path.join(TEST_DIRECTORY, 'TEST_fs-safe-copyDest')
   const fileData = 'hello-world'
   await createTestFile(fileSrc, fileData)
   const promise = copy(fileSrc, fileDest)

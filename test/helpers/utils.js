@@ -42,7 +42,7 @@ function createTestFile (path, data) {
 }
 
 function getTestDirectory () {
-  return path.join(os.tmpdir(), `fs.copy-${Date.now()}`)
+  return path.join(os.tmpdir(), `fs-safe-copy-${Date.now()}`)
 }
 
 function exists (path) {
