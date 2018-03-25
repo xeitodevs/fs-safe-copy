@@ -49,6 +49,6 @@ try {
 ```
 ### Authors
 
-* **Eloy** - [@zucchinidev](https://github.com/zucchinidev)
+* **Eloy** - [@eloylp](https://github.com/zucchinidev)
 * **Andrea** - [@zucchinidev](https://github.com/zucchinidev)
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
