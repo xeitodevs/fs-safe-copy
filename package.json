@@ -1,6 +1,6 @@
 {
   "name": "fs-safe-copy",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Copy some files easily. Check your copy checksum.",
   "main": "lib/index.js",
   "scripts": {
