@@ -51,4 +51,5 @@ try {
 
 * **Eloy** - [@eloylp](https://github.com/eloylp)
 * **Andrea** - [@zucchinidev](https://github.com/zucchinidev)
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+
+See also the list of [contributors](https://github.com/xeitodevs/fs-safe-copy/graphs/contributors) who participated in this project.
