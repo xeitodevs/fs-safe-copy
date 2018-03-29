@@ -19,6 +19,13 @@
     "safe",
     "hash"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xeitodevs/fs-safe-copy"
+  },
+  "bugs": {
+    "url": "https://github.com/xeitodevs/fs-safe-copy/issues"
+  },
   "author": "Xeitodevs <webmaster@xeitodevs.com>",
   "license": "MIT",
   "devDependencies": {
